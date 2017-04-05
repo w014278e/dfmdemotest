@@ -52,7 +52,56 @@ BASE_PATH + 'appimages/news-default.jpg'
     
 ];
 
+var googleMapsAPIJS = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD2tEW34uzw_cERZpVvTI1blKDJLSJ6sh8&callback=initMap';
 
+self.addEventListener('install', function(event) {
+  // Cache everything in CACHED_URLS. Installation fails if anything fails to cache
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(CACHED_URLS);
+    })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  var requestURL = new URL(event.request.url);
+  // Handle requests for index.html
+  if (requestURL.pathname === BASE_PATH + 'first.html') {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match('first.html').then(function(cachedResponse) {
+          var fetchPromise = fetch('first.html').then(function(networkResponse) {
+            cache.put('first.html', networkResponse.clone());
+            return networkResponse;
+          });
+          return cachedResponse || fetchPromise;
+        });
+      })
+    );
+       } else if (requestURL.pathname === BASE_PATH + 'second.html') {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match('second.html').then(function(cachedResponse) {
+          var fetchPromise = fetch('second.html').then(function(networkResponse) {
+            cache.put('second.html', networkResponse.clone());
+            return networkResponse;
+          });
+          return cachedResponse || fetchPromise;
+        });
+      })
+    );
+
+      
+ // Handle requests for Google Maps JavaScript API file
+  } else if (requestURL.href === googleMapsAPIJS) {
+    event.respondWith(
+      fetch(
+        googleMapsAPIJS+'&'+Date.now(),
+        { mode: 'no-cors', cache: 'no-store' }
+      ).catch(function() {
+        return caches.match('offline-map.js');
+      })
+    );
       
     // Handle requests for events JSON file
   } else if (requestURL.pathname === BASE_PATH + 'events.json') {

@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Test Page - Progressive Web Apps</title>
+<link rel="apple-touch-icon" sizes="57x57" href="appimages/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="appimages/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="appimages/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="appimages/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="appimages/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="appimages/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="appimages/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="appimages/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="appimages/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="appimages/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="appimages/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="appimages/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="appimages/favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="appimages/ms-icon-144x144.png">
+<meta name="theme-color" content="#db5945"> 
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="min-style.css">
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Test Page - Progressive Web Apps</span>
+          <div class="mdl-layout-spacer"></div>
+         </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+           
+            <h3>Paddy - where are we?</h3>
+              <p>
+                <img id="mainImg" src="appimages/paddy.jpg" alt="Paddy dog" />
+                <a href="second.html">Link to second page</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim venenatis consequat. Praesent quis odio a neque venenatis ornare. Nam vel sem sed magna porttitor ultrices. Nunc nec turpis vitae lacus efficitur pulvinar in id nibh. Praesent sed mi vel ipsum faucibus ultrices iaculis eget dui. Praesent ultricies velit vel vestibulum convallis. Praesent accumsan luctus sem, at consectetur erat convallis pretium. Nunc pulvinar nec nibh a mollis. Donec a metus in sapien sollicitudin fermentum vitae eu eros.
+              </p>
+              <p>
+                Tempor tempor aliqua in commodo cillum Lorem magna dolore proident Lorem. Esse ad consequat est excepteur irure eu irure quis aliqua qui. Do mollit esse veniam excepteur ut veniam anim minim dolore sit commodo consequat duis commodo. Sunt dolor reprehenderit ipsum minim eiusmod eu consectetur anim excepteur eiusmod. Duis excepteur anim dolor sit enim veniam deserunt anim adipisicing Lorem elit. Cillum sunt do consequat elit laboris nisi consectetur.
+              </p>
+            <h3>Sub Title</h3>
+              
+              <div id="map-container" style="height: 300px;"></div>
+                <script>
+                function initMap() {
+                    var myLocation = {lat: 53.0103798, lng: -2.1801833};
+                    var map = new google.maps.Map(document.getElementById('map-container'), {
+                    zoom: 2,
+                    center: myLocation
+                    });
+                    var marker = new google.maps.Marker({
+                    position: myLocation,
+                    map: map
+                    });
+                }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2tEW34uzw_cERZpVvTI1blKDJLSJ6sh8&callback=initMap">
+                </script>
+
+              <p>
+                Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.
+              </p>
+          </div>
+        </div>
+            <div id="events" class="mdl-grid portfolio-max-width">
+<p>Refresh (or enable Javascript) to view events.</p>
+</div>
+
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
+              <li><a href="#">User Agreement</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+       <script src="material.js"></script>
+      <script src="scripts.js"></script> 
+      
+  </body>
+</html>
